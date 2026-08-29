@@ -11,7 +11,13 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app"><div style="padding:40px;font-family:Arial,sans-serif">กำลังโหลด PaperGuard Demo…</div></div>
+  <script>
+    window.addEventListener("error", event => {
+      const app = document.getElementById("app");
+      if (app && event.error) app.innerHTML = `<div style="padding:40px;font-family:Arial,sans-serif;color:#b74035"><h2>PaperGuard Demo โหลดไม่สำเร็จ</h2><p>${event.error.message}</p><p>ลอง refresh หน้านี้อีกครั้ง</p></div>`;
+    });
+  </script>
   <script src="./js/app.js"></script>
 </body>
 </html>
